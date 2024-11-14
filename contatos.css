@@ -1,0 +1,171 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Estilo para o Body */
+  body {
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  /* Título da Página */
+  #page-title {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+    animation: slideInFromTop 1s ease-out;
+  }
+  
+  /* Container dos Links Sociais */
+  #social-links {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px; /* Espaço inferior para o conteúdo */
+    animation: fadeIn 1.5s ease-out 0.5s forwards;
+  }
+  
+  /* Cartões das Redes Sociais */
+  .social-card {
+    width: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    animation: scaleIn 1s ease-out 1s forwards;
+  }
+  
+  /* Container da Imagem */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Imagem de Perfil */
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Efeito de Degradê ao Passar o Mouse */
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    transition: height 0.4s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+  }
+  
+  /* Gradiente personalizado para cada rede social */
+  .whatsapp .overlay {
+    background: linear-gradient(to top, rgba(37, 211, 102, 0.8), rgba(0, 0, 0, 0));
+  }
+  
+  .instagram .overlay {
+    background: linear-gradient(to top, rgba(225, 48, 108, 0.8), rgba(0, 0, 0, 0));
+  }
+  
+  .linkedin .overlay {
+    background: linear-gradient(to top, rgba(0, 119, 181, 0.8), rgba(0, 0, 0, 0));
+  }
+  
+  .image-container:hover .overlay {
+    height: 100%; /* Mostra o degradê ao passar o mouse */
+  }
+  
+  /* Botão Seguir */
+  .button {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  
+  .image-container:hover .button {
+    opacity: 1; /* Aparece o botão ao passar o mouse */
+  }
+  
+  /* Botão Voltar no canto superior esquerdo */
+  .button-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+  }
+  
+  .button-voltar:hover {
+    color: #007bff; /* Azul ao descansar o mouse */
+  }
+  
+  .button-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .button-voltar:hover .button-icon {
+    transform: translateX(-5px); /* Movimento da seta para a esquerda ao passar o mouse */
+  }
+  
+  /* Keyframes para animações */
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
