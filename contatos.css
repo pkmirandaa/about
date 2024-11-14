@@ -22,6 +22,7 @@
     font-size: 2rem;
     font-weight: bold;
     animation: slideInFromTop 1s ease-out;
+    text-align: center;
   }
   
   /* Container dos Links Sociais */
@@ -30,6 +31,8 @@
     gap: 20px;
     margin-bottom: 40px; /* Espaço inferior para o conteúdo */
     animation: fadeIn 1.5s ease-out 0.5s forwards;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   /* Cartões das Redes Sociais */
@@ -128,13 +131,21 @@
     color: #007bff; /* Azul ao descansar o mouse */
   }
   
-  .button-icon {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
-  }
+  /* Media Queries para responsividade */
+  @media (max-width: 768px) {
+    #social-links {
+      flex-direction: column;
+      gap: 15px;
+    }
   
-  .button-voltar:hover .button-icon {
-    transform: translateX(-5px); /* Movimento da seta para a esquerda ao passar o mouse */
+    .social-card {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    #page-title {
+      font-size: 1.8rem;
+    }
   }
   
   /* Keyframes para animações */

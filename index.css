@@ -1,144 +1,170 @@
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  /* Estilo para o Body */
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #111; /* Fundo preto para o resto da página */
-    overflow: hidden; /* Evitar barras de rolagem durante as animações */
-  }
-  
-  /* Container do Hero */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Estilo para o Body */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #111; /* Fundo preto para o resto da página */
+  overflow: hidden; /* Evitar barras de rolagem durante as animações */
+}
+
+/* Container do Hero */
+#hero-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  opacity: 0; /* Inicia invisível */
+  animation: fadeIn 1.5s ease-out 0.5s forwards;
+}
+
+/* Imagem de fundo à esquerda */
+#hero-image {
+  flex: 1; /* Ocupa metade do espaço horizontal */
+  background-image: url("whatsapp-image.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  opacity: 0; /* Inicia invisível */
+  animation: slideInFromLeft 1.5s ease-out forwards;
+}
+
+/* Degradê sobre a imagem */
+#hero-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(17, 17, 17, 1), rgba(17, 17, 17, 0));
+}
+
+/* Texto do Hero */
+#hero-text {
+  flex: 1; /* Ocupa metade do espaço horizontal */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  color: #fff;
+  background-color: #111; /* Fundo preto para o texto */
+  opacity: 0; /* Começa invisível */
+  animation: slideInFromRight 1.5s ease-out 1s forwards;
+}
+
+#hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Parágrafo do Hero */
+#hero-text p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #ccc;
+  word-wrap: break-word; /* Quebra a linha de palavras longas */
+  overflow-wrap: break-word; /* Garante que o texto seja quebrado adequadamente */
+  hyphens: auto; /* Divide as palavras automaticamente se necessário */
+}
+
+/* Estilo do botão Começar sem bordas */
+.button-comecar {
+  margin-top: 35px;
+  padding: 0; /* Sem padding adicional, apenas o texto */
+  background-color: transparent;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px; /* Espaço entre o texto e o ícone */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Transição suave na mudança de cor */
+  opacity: 0; /* Começa invisível */
+  animation: fadeIn 1.5s ease-out 1.8s forwards;
+}
+
+.button-comecar:hover {
+  color: #007bff; /* Azul ao descansar o mouse */
+}
+
+.button-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.button-comecar:hover .button-icon {
+  transform: translateX(5px); /* Pequeno movimento da seta ao passar o mouse */
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
   #hero-content {
-    display: flex;
-    width: 100%;
-    height: 100vh; /* Ocupa toda a altura da tela */
-    opacity: 0; /* Inicia invisível */
-    animation: fadeIn 1.5s ease-out 0.5s forwards;
-  }
-  
-  /* Imagem de fundo à esquerda */
-  #hero-image {
-    flex: 1; /* Ocupa metade do espaço horizontal */
-    background-image: url("whatsapp-image.jpg");
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    opacity: 0; /* Inicia invisível */
-    animation: slideInFromLeft 1.5s ease-out forwards;
-  }
-  
-  /* Degradê sobre a imagem */
-  #hero-image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to left,
-      rgba(17, 17, 17, 1),
-      rgba(17, 17, 17, 0)
-    );
-  }
-  
-  /* Texto do Hero */
-  #hero-text {
-    flex: 1; /* Ocupa metade do espaço horizontal */
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 40px;
-    color: #fff;
-    background-color: #111; /* Fundo preto para o texto */
-    opacity: 0; /* Começa invisível */
-    animation: slideInFromRight 1.5s ease-out 1s forwards;
+    height: auto;
   }
-  
+
+  #hero-image {
+    height: 50vh;
+  }
+
+  #hero-text {
+    padding: 20px;
+    text-align: center;
+  }
+
   #hero-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
   }
-  
-  /* Parágrafo do Hero */
+
   #hero-text p {
-    font-size: 1.2rem;
-    line-height: 1.3;
-    color: #ccc;
-    word-wrap: break-word; /* Quebra a linha de palavras longas */
-    overflow-wrap: break-word; /* Garante que o texto seja quebrado adequadamente */
-    hyphens: auto; /* Divide as palavras automaticamente se necessário */
+    font-size: 1rem;
   }
-  
-  /* Estilo do botão Começar sem bordas */
+
   .button-comecar {
-    margin-top: 35px;
-    padding: 0; /* Sem padding adicional, apenas o texto */
-    background-color: transparent;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px; /* Espaço entre o texto e o ícone */
-    cursor: pointer;
-    transition: color 0.3s ease; /* Transição suave na mudança de cor */
-    opacity: 0; /* Começa invisível */
-    animation: fadeIn 1.5s ease-out 1.8s forwards;
+    justify-content: center;
+    margin: 20px auto 0;
   }
-  
-  .button-comecar:hover {
-    color: #007bff; /* Azul ao descansar o mouse */
+}
+
+/* Keyframes para animações */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  
-  .button-icon {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+  100% {
+    opacity: 1;
   }
-  
-  .button-comecar:hover .button-icon {
-    transform: translateX(5px); /* Pequeno movimento da seta ao passar o mouse */
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
-  
-  /* Keyframes para animações */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  
-  @keyframes slideInFromRight {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
+}
